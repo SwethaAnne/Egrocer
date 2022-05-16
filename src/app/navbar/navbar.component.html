@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row d-flex align-items-center">
+            <div class="col-auto" style="cursor: pointer;" routerLink='/'>
+                <img src="/assets/shop.png" class="img-fluid" height="100px" width="100px" alt="">
+            </div>
+            <div class="fs-3 text-success ms-3 col">
+                E-Grocer: Fresh Food Directly from Farm
+            </div>
+            <div class="col-auto d-flex my-auto">
+                <mat-form-field appearance="outline">
+                    <mat-label>Search</mat-label>
+                    <input type="text" matInput [(ngModel)]="commonService.getAllProductsReqObj.product_name" (change)="searchProducts()">
+                </mat-form-field>
+            </div>
+            <div class="col-auto ms-auto text-success d-flex" (click)="navigateToCheckout()" *ngIf="authService.user.isLoggedIn" style="cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>
+                <!-- <div class="circle d-flex align-items-center justify-content-center mt-auto text-dark">
+                    {{commonService.totalCartItems}}</div> -->
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-success" (click)="openLoginPopup()" *ngIf="!authService.user.isLoggedIn">Login</button>
+                <div class="d-flex align-items-center" *ngIf="authService.user.isLoggedIn">
+                    {{authService.user.data.user_name}}
+                    <button class="bg-transparent border-0 d-flex align-items-center justify-content-center ms-2" mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>expand_more</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openProfilePopup()">
+                            <span>Profile</span>
+                        </button>
+                        <button mat-menu-item (click)="authService.logout()">
+                            <span>Logout</span>
+                        </button>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="row d-flex align-items-center">
+                <div class="col-auto" style="cursor: pointer;" routerLink='/'>
+                    <img src="/assets/shop.png" class="img-fluid" height="100px" width="100px" alt="">
+                </div>
+                <div class="fs-3 text-success ms-3 col">
+                    E-Grocer: Fresh Food Directly from Farm
+                </div>
+                <div class="col-auto d-flex my-auto">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Search</mat-label>
+                        <input type="text" matInput>
+                    </mat-form-field>
+                </div>
+                <div class="col-auto ms-auto text-success d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg>
+                    <div class="circle d-flex align-items-center justify-content-center mt-auto text-dark">
+                        {{commonService.totalCartItems}}</div>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-success">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            <img src="/assets/header.jpg" width="100%" height="400px" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 fs-1">
+            Shopping Cart
+        </div>
+        <div class="col-12 border rounded d-flex align-items-center">
+            You have {{commonService.cartItems.length}} in your shopping cart
+            <button class="btn btn-danger ms-2" (click)="clearShoppingCart()">Clear Shopping Cart</button>
+        </div>
+        <div class="col-12 border rounded">
+            <table mat-table [dataSource]="dataSource" class="w-100">
+
+                <ng-container matColumnDef="item">
+                    <th mat-header-cell *matHeaderCellDef> Item </th>
+                    <td mat-cell *matCellDef="let element">
+                        <img src="{{element.path}}" class="item-size" alt="{{element.name}}">
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="selected">
+                    <th mat-header-cell class="text-center" *matHeaderCellDef> Quantity </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-auto">
+                                <button class="btn btn-success" (click)="updateQuantity(element, 'subtract')">-</button>
+                            </div>
+                            <div class="col text-center">
+                                {{element.selected}} in cart
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-success" (click)="updateQuantity(element, 'add')">+</button>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell class="ms-2" *matHeaderCellDef> Price </th>
+                    <td mat-cell *matCellDef="let element" class="ms-2"> {{element.price * element.selected}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <div class="col-12 border rounded">
+            <button class="btn btn-success my-2" routerLink='/shipping'>Checkout</button>
+        </div>
+    </div>
+</div>

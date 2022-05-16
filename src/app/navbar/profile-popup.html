@@ -1,0 +1,34 @@
+<form [formGroup]="authService.registerValidation">
+    <div class="spinner-border d-flex mx-auto" role="status" *ngIf="authService.registerLoad">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="row" *ngIf="!authService.registerLoad">
+        <div class="col-12 text-center">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input type="text" formControlName="name" matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-12 text-center">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" formControlName="email" matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-12 text-center">
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input type="text" formControlName="mobile" matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-12 text-center">
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <textarea matInput formControlName="address" placeholder="Address"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="col-12 text-end">
+            <button class="btn btn-primary" (click)="authService.updateProfile()">Update</button>
+        </div>
+    </div>
+</form>

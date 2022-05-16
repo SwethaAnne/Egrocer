@@ -1,0 +1,141 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-form-field.mat-form-field {
+    /* @extend .font-small; */
+    width: 100%;
+}
+
+
+/* Default Input Border */
+
+
+/* .mat-form-field-appearance-outline .mat-form-field-outline {
+    @extend .text-gray;
+} */
+
+
+/* Focused Input Border */
+
+
+/* .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    @extend .text-blue;
+} */
+
+
+/* Input Disabled */
+
+
+/* .mat-form-field-disabled .mat-form-field-outline {
+    @extend .bg-gray;
+    border-radius: $border-5;
+    opacity: 0.1;
+} */
+
+
+/* Mat Input padding */
+
+.mat-form-field-wrapper {
+    padding: 5px 0 !important;
+}
+
+.mat-error {
+    padding: 10px 0;
+}
+
+
+/* When there is an error */
+
+
+/* .mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-thick {
+    @extend .text-red;
+} */
+
+
+/* Mat Expansion Styles */
+
+.mat-expansion-panel-header:not([aria-disabled="true"]) {
+    padding: 0 !important;
+}
+
+.mat-expansion-panel-header {
+    background: none !important;
+}
+
+.mat-expansion-panel-body {
+    padding: 0 !important;
+}
+
+
+/* Expansion Arrow animation */
+
+.rotate-0 {
+    transform: rotate(0deg);
+    transition: transform 300ms linear;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 300ms linear;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    /* @extend .bg-blue; */
+    background-color: rgba(27, 142, 241, 0.4) !important;
+}
+
+.mat-ripple-element {
+    background: rgba(27, 142, 241, 0.4) !important;
+}
+
+
+/*Material Icon Color */
+
+
+/* .color-gray {
+    @extend .text-gray;
+} */
+
+
+/* Paginator Styles */
+
+.mat-paginator {
+    width: 100% !important;
+    background: none !important;
+}
+
+.mat-paginator-container {
+    justify-content: center !important;
+}
+
+
+/* Checkbox Styles */
+
+.mat-checkbox-layout {
+    margin: 0 !important;
+}
+
+.mat-sort-header-container {
+    justify-content: center !important;
+}
+
+.circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: yellow;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
