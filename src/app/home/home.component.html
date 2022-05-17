@@ -31,7 +31,7 @@
                             <h5 class="card-title">{{i.product_name}}</h5>
                             <p class="card-text">${{i.cost}}</p>
                         </div>
-                        <button class="btn btn-success w-100">ADD
+                        <button class="btn btn-success w-100" (click)="addItemToCart(i)">ADD
                             TO
                             CART</button>
                         <!-- <div class="row g-0" *ngIf="i.selected > 0">

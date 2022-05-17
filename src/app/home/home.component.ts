@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
   };
 
 
-  constructor(public popup: MatDialog, public commonService: CommonService, public router: Router) { }
+  constructor(public popup: MatDialog, public commonService: CommonService, public router: Router, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.searchProducts();
@@ -77,6 +77,13 @@ export class HomeComponent implements OnInit {
     }
     // console.log(itemList)
     return itemList;
+  }
+
+  addItemToCart(item: any) {
+    this.commonService.addProductInCartReqObj = {};
+    this.commonService.addProductInCartReqObj.user_id = this.authService.user.user_id;
+    this.commonService.addProductInCartReqObj.product = item;
+    this.commonService.addProductToCart();
   }
 
 }
